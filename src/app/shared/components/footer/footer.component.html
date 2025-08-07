@@ -1,0 +1,45 @@
+<footer
+  class=" shadow-inner transition-colors duration-300
+         bg-gradient-to-r from-[#E3F2FD] to-[#F1F8E9]
+         dark:from-gray-900 dark:to-gray-800
+         text-gray-700 dark:text-gray-300">
+
+  <div class="max-w-screen-lg mx-auto px-4 py-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
+
+    <!-- Columna 1: Logo y descripción -->
+    <div>
+      <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-2">
+        LearningMusicPlus 🎵
+      </h2>
+      <p class="text-sm">
+        Aprende piano, guitarra y bajo con clases de alta calidad y a tu propio ritmo.
+      </p>
+    </div>
+
+    <!-- Columna 2: Enlaces rápidos -->
+    <div>
+      <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Enlaces rápidos</h3>
+      <ul class="space-y-1 text-sm">
+        <li><a routerLink="/" class="hover:underline hover:text-blue-500 dark:hover:text-cyan-400">Inicio</a></li>
+        <li><a routerLink="/explorar" class="hover:underline hover:text-blue-500 dark:hover:text-cyan-400">Explorar cursos</a></li>
+        <li><a routerLink="/proyectos" class="hover:underline hover:text-blue-500 dark:hover:text-cyan-400">Proyectos</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3: Contacto -->
+    <div>
+      <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Contacto</h3>
+      <ul class="space-y-1 text-sm">
+        <li>Email: <a href="mailto:contacto@learningmusicplus.com" class="hover:underline hover:text-blue-500 dark:hover:text-cyan-400">contacto@learningmusicplus.com</a></li>
+        <li>Instagram: <a href="#" class="hover:underline hover:text-blue-500 dark:hover:text-cyan-400">@learningmusicplus</a></li>
+        <li>Twitter: <a href="#" class="hover:underline hover:text-blue-500 dark:hover:text-cyan-400">@learnmusicplus</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Línea inferior -->
+  <div class="text-center text-xs py-4 border-t border-gray-200 dark:border-gray-700">
+    &copy; {{ currentYear }} LearningMusicPlus. Todos los derechos reservados.
+  </div>
+</footer>

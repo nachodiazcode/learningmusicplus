@@ -1,0 +1,14 @@
+
+  <section class="max-w-screen-lg mx-auto text-center mb-10 mt-8">
+    <h1 class="text-4xl font-bold text-gray-800 dark:text-gray-100">💼 Proyectos</h1>
+    <p class="text-lg text-gray-600 dark:text-gray-300">Aquí encontrarás mis proyectos más importantes.</p>
+  </section>
+
+  <section class="max-w-screen-lg mx-auto grid md:grid-cols-3 gap-6">
+    <div *ngFor="let proyecto of proyectos" class="p-6 rounded-xl shadow-lg bg-gradient-to-br from-indigo-100 to-indigo-200 dark:from-gray-800 dark:to-gray-900">
+      <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100">{{ proyecto.nombre }}</h3>
+      <p class="text-gray-700 dark:text-gray-300 mb-4">{{ proyecto.descripcion }}</p>
+      <a [href]="proyecto.link" target="_blank" class="text-blue-700 dark:text-cyan-400 hover:underline">Ver más →</a>
+    </div>
+  </section>
+

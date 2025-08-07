@@ -1,0 +1,14 @@
+<main class="mx-auto max-w-screen-xl px-4 py-10 space-y-10">
+  <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">🗞️ Últimas noticias</h2>
+
+  <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <article *ngFor="let noticia of noticias"
+             class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+      <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-1">
+        {{ noticia.titulo }}
+      </h3>
+      <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">{{ noticia.fecha }}</p>
+      <p class="text-gray-700 dark:text-gray-300">{{ noticia.descripcion }}</p>
+    </article>
+  </section>
+</main>

@@ -1,0 +1,57 @@
+<header
+  class="backdrop-blur-md transition-all duration-500
+         bg-gradient-to-r from-[#F1F8E9]/80 to-[#E3F2FD]/80
+         dark:from-[#1E293B]/80 dark:to-[#0F172A]/80 border-b border-white/20 dark:border-gray-700/30">
+
+  <!-- CENTRADO -->
+  <div class=" mx-auto px-4 flex justify-between h-20">
+
+    <!-- Logo -->
+    <h1 class="flex items-center gap-2 text-xl font-bold tracking-wide leading-none
+               text-gray-800 dark:text-gray-100 hover:opacity-90 transition-opacity duration-300 cursor-pointer">
+      🎵
+      <span class="relative group">
+        LearningMusicPlus
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-500 dark:bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
+      </span>
+    </h1>
+
+    <!-- Acciones -->
+    <nav class="flex items-center gap-x-5" aria-label="Acciones de usuario">
+
+      <!-- Switch tema -->
+      <mat-slide-toggle
+        [checked]="isDarkMode"
+        (change)="toggleTheme($event.checked)"
+        class="!text-white transform transition-transform duration-300 hover:scale-110"
+        aria-label="Cambiar tema">
+        <span *ngIf="!isDarkMode">🌞</span>
+        <span *ngIf="isDarkMode">🌙</span>
+      </mat-slide-toggle>
+
+      <!-- Notificaciones -->
+      <button
+        class="relative hover:scale-110 transition-transform duration-300"
+        aria-label="Notificaciones">
+        🔔
+        <span
+          class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1 shadow">
+          {{ notificationsCount }}
+        </span>
+      </button>
+
+      <!-- Perfil -->
+      <div class="relative group">
+        <img src="https://i.pravatar.cc/40" alt="Usuario"
+             class="w-9 h-9 rounded-full cursor-pointer border-2 border-white dark:border-gray-600 transition-transform duration-300 hover:scale-105 shadow-sm">
+        <div
+          class="absolute right-0 mt-3 w-52 bg-white text-black shadow-xl rounded-lg overflow-hidden hidden group-hover:block dark:bg-gray-800 dark:text-white transition-all duration-300 border border-gray-200 dark:border-gray-700">
+          <a routerLink="/perfil" class="block px-4 py-2 hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 dark:hover:from-gray-700 dark:hover:to-gray-600 transition-colors duration-300">Mi perfil</a>
+          <a routerLink="/configuracion" class="block px-4 py-2 hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 dark:hover:from-gray-700 dark:hover:to-gray-600 transition-colors duration-300">Configuración</a>
+          <button class="w-full text-left px-4 py-2 hover:bg-gradient-to-r hover:from-red-50 hover:to-red-100 dark:hover:from-gray-700 dark:hover:to-gray-600 transition-colors duration-300">Cerrar sesión</button>
+        </div>
+      </div>
+
+    </nav>
+  </div>
+</header>

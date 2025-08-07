@@ -1,0 +1,43 @@
+<main class="container max-w-screen-lg mx-auto px-4 space-y-8 mt-8">
+
+  <!-- Hero -->
+  <article class="p-8 rounded-xl shadow-lg bg-gradient-to-br from-[#E8F5E9] to-[#E3F2FD]
+           dark:from-[#1E293B] dark:to-[#0F172A]">
+    <h2 class="text-3xl font-bold mb-2 text-gray-800 dark:text-gray-100">🎹 Curso de Piano</h2>
+    <p class="text-lg text-gray-600 dark:text-gray-300">
+      Aprende desde cero a tocar el piano, desarrollando técnica, lectura musical y expresión artística.
+    </p>
+  </article>
+
+  <!-- Progreso -->
+  <section>
+    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-2">📊 Tu progreso</h3>
+    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4">
+      <div class="bg-blue-500 dark:bg-cyan-400 h-4 rounded-full transition-all"
+           [style.width.%]="progreso"></div>
+    </div>
+    <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">{{ progreso }}% completado</p>
+  </section>
+
+  <!-- Lecciones -->
+  <section>
+    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">📚 Lecciones</h3>
+    <div *ngFor="let leccion of lecciones"
+         class="p-4 mb-3 rounded-lg shadow-md bg-white dark:bg-gray-800">
+      <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-100">{{ leccion.titulo }}</h4>
+      <p class="text-gray-600 dark:text-gray-300">{{ leccion.descripcion }}</p>
+      <a [routerLink]="leccion.ruta" class="mt-2 inline-block text-sm text-blue-500 dark:text-cyan-400 hover:underline">
+        Ver lección →
+      </a>
+    </div>
+  </section>
+
+  <!-- Recursos -->
+  <section>
+    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">🎼 Recursos</h3>
+    <ul class="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+      <li *ngFor="let recurso of recursos">{{ recurso }}</li>
+    </ul>
+  </section>
+
+</main>

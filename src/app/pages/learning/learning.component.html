@@ -1,0 +1,49 @@
+<main class="mx-auto w-full max-w-screen-lg px-6 space-y-10">
+
+  <!-- Título general -->
+  <section>
+    <h2 class="text-3xl font-bold text-gray-800 dark:text-white">📈 Mi aprendizaje</h2>
+    <p class="text-gray-600 dark:text-gray-300">
+      ¡Sigue así Nacho! Estás avanzando de forma increíble 🎯
+    </p>
+  </section>
+
+  <!-- Progreso global -->
+  <section class="p-6 rounded-xl shadow-md bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-800 dark:to-gray-900">
+    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">📊 Progreso general</h3>
+    <div class="space-y-2">
+      <div class="flex justify-between text-sm text-gray-700 dark:text-gray-300">
+        <span>Progreso total</span>
+        <span>{{ progresoGlobal }}%</span>
+      </div>
+      <div class="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-4">
+        <div class="h-4 rounded-full bg-gradient-to-r from-green-500 to-emerald-400" [style.width.%]="progresoGlobal"></div>
+      </div>
+      <div class="flex justify-between text-sm mt-4 text-gray-600 dark:text-gray-400">
+        <span>🎓 Cursos completados: {{ cursosCompletados }}</span>
+        <span>⏰ Horas totales: {{ horasTotales }}h</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cursos individuales -->
+  <section>
+    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">📚 Cursos en progreso</h3>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div *ngFor="let curso of cursosEnProgreso"
+           class="p-4 rounded-lg shadow-md bg-gradient-to-r from-white to-blue-50 dark:from-gray-800 dark:to-gray-900">
+        <div class="flex justify-between mb-1">
+          <span class="font-semibold text-gray-800 dark:text-white">{{ curso.titulo }}</span>
+          <span class="text-sm text-gray-600 dark:text-gray-400">{{ curso.progreso }}%</span>
+        </div>
+        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
+          <div class="h-3 bg-gradient-to-r from-blue-500 to-cyan-400" [style.width.%]="curso.progreso"></div>
+        </div>
+        <a href="#" class="mt-2 inline-block text-sm text-blue-600 dark:text-cyan-400 hover:underline">
+          Continuar →
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>

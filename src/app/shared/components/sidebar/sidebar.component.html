@@ -1,0 +1,88 @@
+<aside
+  class="w-64 flex flex-col
+         min-h-screen
+         bg-gradient-to-b from-[#F1F8E9] to-[#E3F2FD]
+         dark:from-[#1E293B] dark:to-[#0F172A]
+         p-4 border-r border-gray-200 dark:border-gray-700
+         shadow-md transition-all duration-500">
+
+  <!-- Encabezado -->
+  <div class="mb-6">
+    <h2 class="text-lg font-bold text-gray-700 dark:text-gray-200 tracking-wide">
+      🎵 Learning+
+    </h2>
+  </div>
+
+  <!-- Navegación -->
+  <div class="flex-1 overflow-y-auto">
+    <ul class="space-y-2">
+
+      <!-- Navegación principal -->
+      <li *ngFor="let item of menuItems">
+        <a
+          [routerLink]="item.link"
+          routerLinkActive="bg-primary text-primary-content shadow-md"
+          [routerLinkActiveOptions]="{ exact: item.exact || false }"
+          class="flex items-center p-2 rounded-lg transition-all duration-300 ease-in-out
+                 hover:bg-[#E0ECF5] dark:hover:bg-[#243447] group"
+        >
+          <span class="text-lg group-hover:scale-110 transform transition-transform duration-300">
+            {{ item.icon }}
+          </span>
+          <span class="ml-3 font-medium">{{ item.label }}</span>
+        </a>
+      </li>
+
+      <!-- Aprendizaje -->
+      <li class="mt-6 border-t border-gray-300 dark:border-gray-600 pt-4">
+        <span class="text-xs uppercase text-gray-500 dark:text-gray-400 pl-2 tracking-wide">Aprendizaje</span>
+      </li>
+      <li>
+        <a routerLink="/mi-aprendizaje" class="flex items-center p-2 rounded-lg hover:bg-[#DCEEF2] dark:hover:bg-[#243447] transition-all">
+          <span class="text-lg">📚</span>
+          <span class="ml-3">Mi aprendizaje</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/certificados" class="flex items-center p-2 rounded-lg hover:bg-[#DCEEF2] dark:hover:bg-[#243447] transition-all">
+          <span class="text-lg">🎓</span>
+          <span class="ml-3">Certificados</span>
+        </a>
+      </li>
+
+      <!-- Novedades -->
+      <li class="mt-6 border-t border-gray-300 dark:border-gray-600 pt-4">
+        <span class="text-xs uppercase text-gray-500 dark:text-gray-400 pl-2 tracking-wide">Novedades</span>
+      </li>
+      <li>
+        <a routerLink="/noticias" class="flex items-center p-2 rounded-lg hover:bg-[#DCEEF2] dark:hover:bg-[#243447] transition-all">
+          <span class="text-lg">📰</span>
+          <span class="ml-3">Noticias</span>
+        </a>
+      </li>
+
+      <!-- Usuario -->
+      <li class="mt-6 border-t border-gray-300 dark:border-gray-600 pt-4">
+        <span class="text-xs uppercase text-gray-500 dark:text-gray-400 pl-2 tracking-wide">Usuario</span>
+      </li>
+      <li>
+        <a routerLink="/perfil" class="flex items-center p-2 rounded-lg hover:bg-[#DCEEF2] dark:hover:bg-[#243447] transition-all">
+          <span class="text-lg">👤</span>
+          <span class="ml-3">Perfil</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/configuracion" class="flex items-center p-2 rounded-lg hover:bg-[#DCEEF2] dark:hover:bg-[#243447] transition-all">
+          <span class="text-lg">⚙️</span>
+          <span class="ml-3">Configuración</span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+
+  <!-- Branding abajo -->
+  <div class="pt-4 border-t text-xs text-gray-500 dark:text-gray-400 border-gray-300 dark:border-gray-600">
+    v1.0.0
+  </div>
+</aside>

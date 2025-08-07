@@ -1,0 +1,29 @@
+<main class="mx-auto max-w-screen-xl px-4 py-10 space-y-10">
+  <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">⚙️ Configuración</h2>
+
+  <section class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700 space-y-6">
+
+    <div>
+      <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100">Notificaciones 🔔</h3>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Recibe alertas sobre nuevos cursos, noticias y más.</p>
+      <label class="inline-flex items-center cursor-pointer">
+        <input type="checkbox" [(ngModel)]="notificaciones" class="sr-only peer">
+        <div
+          class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:bg-green-500 transition-colors duration-300">
+        </div>
+        <span class="ml-3 text-sm text-gray-600 dark:text-gray-400">
+          {{ notificaciones ? 'Activadas' : 'Desactivadas' }}
+        </span>
+      </label>
+    </div>
+
+    <div>
+      <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100">Tema 🎨</h3>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Selecciona tu estilo visual preferido.</p>
+      <select [(ngModel)]="tema" class="rounded-lg p-2 border dark:bg-gray-900 dark:text-white">
+        <option value="claro">Claro</option>
+        <option value="oscuro">Oscuro</option>
+      </select>
+    </div>
+  </section>
+</main>
