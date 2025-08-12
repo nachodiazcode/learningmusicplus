@@ -1,27 +1,112 @@
-# Learningmusicplus
+# 🎵 LearningMusicPlus
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
+Aplicación moderna en Angular para aprender piano, guitarra y bajo con cursos de alta calidad a tu propio ritmo.  
+Construida con **Angular**, **Tailwind CSS** y **Angular Material** para una interfaz moderna, profesional y adaptable.
 
-## Development server
+## 🚀 Características
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- 🎨 **Personalización de temas**  
+  - Modo claro y modo oscuro  
+  - Fondo degradado azul suave en modo claro  
+  - Paleta índigo (primario) + cian (acento) con alto contraste
 
-## Code scaffolding
+- ⚡ **Angular moderno**  
+  - **Componentes standalone** para un enrutado modular  
+  - Comunicación entre padre e hijo con **EventEmitter** y **@Input / @Output**  
+  - Router con lazy loading
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- 🖌 **UI y Estilos**  
+  - Tailwind CSS para un diseño rápido y responsivo  
+  - Componentes de Angular Material personalizados con SCSS  
+  - Variables CSS para fácil ajuste de diseño
 
-## Build
+- 📚 **Estructura de cursos**  
+  - Categorías: Piano, Guitarra, Bajo  
+  - Seguimiento de progreso  
+  - Secciones de Certificados, Proyectos y Noticias
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## 🛠 Stack Tecnológico
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Angular** (vX.X)  
+- **Tailwind CSS**  
+- **Angular Material**  
+- **TypeScript**  
+- **SCSS**
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 📂 Estructura del Proyecto
 
-## Further help
+```
+src/
+  app/
+    pages/           # Componentes de página (home, explorar, perfil, etc.)
+    courses/         # Secciones de cursos (piano, guitarra, bajo)
+    layouts/         # Layout principal
+    shared/          # Componentes reutilizables (botones, tarjetas, sidebar, toolbar)
+    material.module.ts
+  styles.scss        # Estilos globales + imports de Tailwind
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+
+## 🖥 Desarrollo
+
+### Instalar dependencias
+```bash
+npm install
+```
+
+### Ejecutar en local
+```bash
+ng serve
+```
+
+### Compilar para producción
+```bash
+ng build
+```
+
+---
+
+## 🔌 Comunicación entre Componentes
+
+Ejemplo con **@Input() y @Output()**:
+
+```ts
+// child.component.ts
+@Input() curso!: Curso;
+@Output() inscribir = new EventEmitter<string>();
+
+inscribirCurso() {
+  this.inscribir.emit(this.curso.id);
+}
+```
+
+```ts
+// parent.component.html
+<app-course-card
+  [curso]="cursoSeleccionado"
+  (inscribir)="onInscribir($event)">
+</app-course-card>
+```
+
+---
+
+## 🗺 Enrutado con Componentes Standalone
+
+Ejemplo:
+```ts
+export const routes: Routes = [
+  { path: 'home', loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent) },
+  { path: '**', redirectTo: 'home' }
+];
+```
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia MIT.
