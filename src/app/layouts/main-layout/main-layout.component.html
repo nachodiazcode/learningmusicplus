@@ -1,0 +1,19 @@
+  <!-- Toolbar -->
+  <app-toolbar
+    class="sticky top-0 z-50 shadow-md"
+    (toggleSidebar)="toggleSidebar()">
+  </app-toolbar>
+
+  <!-- Cuerpo -->
+  <div class="flex flex-1 relative">
+    <!-- Sidebar controlado por el layout -->
+    <app-sidebar
+      [open]="isSidebarOpen"
+      (closed)="closeSidebar()">
+    </app-sidebar>
+
+    <!-- Contenido -->
+    <section class="flex-1 overflow-y-auto p-6">
+      <router-outlet></router-outlet>
+    </section>
+  </div>
