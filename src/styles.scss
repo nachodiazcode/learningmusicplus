@@ -76,11 +76,16 @@ $dark-theme: mat.define-dark-theme((
 
 /* ---------- Base de la app ---------- */
 html, body {
-  background: var(--bg);
-  color: var(--text);
-  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+  min-height: 100%;
+  background: linear-gradient(180deg, #F8FAFF 0%, #E0F2FE 100%) !important;
+  background-attachment: fixed;
+  transition: background .25s ease, color .25s ease;
 }
 
+/* Dark mode */
+.dark-theme {
+  background: linear-gradient(180deg, #0B1220 0%, #1E293B 100%) !important;
+}
 .app-surface, .card, .mat-mdc-card, .mat-mdc-menu-panel, .mat-mdc-select-panel {
   background: var(--surface);
   color: var(--text);

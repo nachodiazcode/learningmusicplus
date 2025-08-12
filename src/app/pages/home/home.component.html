@@ -1,64 +1,117 @@
-<main class="container max-w-screen-lg mx-auto px-4 space-y-8 mt-8">
+<main class="container max-w-screen-lg mx-auto px-4 md:px-6 space-y-10 mt-8 bg-transparent">
 
-  <!-- Hero -->
-  <article class="p-8 rounded-xl shadow-lg transition-all duration-500
-        bg-gradient-to-br from-[#F1F8E9] to-[#E3F2FD]
-        dark:from-[#1E293B] dark:to-[#0F172A]">
-    <h2 class="text-3xl font-bold mb-2 text-gray-800 dark:text-gray-100">
-      Hola Nacho 👋 Bienvenido a
-      <span class="text-blue-600 dark:text-cyan-400">LearningMusicPlus</span> 🎶
-    </h2>
-    <p class="text-lg text-gray-600 dark:text-gray-300">
-      Aprende piano, guitarra y bajo con clases de alta calidad a tu propio ritmo.
-    </p>
-    <a routerLink="/explorar" class="mt-6 inline-block px-6 py-3 rounded-lg text-white font-semibold shadow-md
-                bg-blue-500 hover:bg-blue-400
-                dark:bg-cyan-500 dark:hover:bg-cyan-400 transition-colors duration-300">
-      🎯 Explorar cursos
-    </a>
-  </article>
+  <!-- HERO -->
+  <section
+    class="rounded-2xl p-8 md:p-10 shadow-lg ring-1 ring-[#E6EAF0]
+           bg-white dark:bg-[#0F172A]/80 dark:ring-[#1E293B]">
+    <header class="mb-5">
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight
+                 text-[#111827] dark:text-[#E5E7EB]">
+        Hola Nacho 👋 Bienvenido a
+        <span class="text-[#2563EB] dark:text-[#60A5FA]">LearningMusicPlus</span> 🎶
+      </h2>
+      <p class="mt-2 text-lg text-[#4B5563] dark:text-[#9CA3AF]">
+        Aprende piano, guitarra y bajo con clases de alta calidad a tu propio ritmo.
+      </p>
+    </header>
 
-  <!-- Cursos en progreso -->
-  <section class="space-y-4">
-    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">📚 Tus cursos en progreso</h3>
-    <div *ngFor="let curso of cursosEnProgreso"
-      class="p-4 rounded-lg shadow-md bg-gradient-to-r from-white to-blue-50 dark:from-gray-800 dark:to-gray-900">
-      <div class="flex justify-between mb-2">
-        <span class="font-semibold text-gray-800 dark:text-gray-100">{{ curso.titulo }}</span>
-        <span class="text-sm text-gray-500 dark:text-gray-400">{{ curso.progreso }}%</span>
-      </div>
-      <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
-        <div class="h-3 bg-gradient-to-r from-blue-500 to-cyan-400 animate-[progress_2s_ease-in-out]"
-          [style.width.%]="curso.progreso"></div>
-      </div>
-      <a [routerLink]="curso.ruta" class="mt-2 inline-block text-sm text-blue-500 dark:text-cyan-400 hover:underline">
-        Continuar →
+    <div class="flex flex-wrap items-center gap-3">
+      <a routerLink="/explorar"
+         class="inline-flex items-center gap-2 px-5 py-2.5 font-semibold rounded-xl
+                text-white bg-[#2563EB] hover:bg-[#1D4ED8] active:scale-[.98]
+                transition-all shadow-sm">
+        🎯 Explorar cursos
+      </a>
+
+      <a routerLink="/mi-aprendizaje"
+         class="inline-flex items-center gap-2 px-4 py-2 rounded-xl
+                text-[#2563EB] dark:text-[#60A5FA] hover:underline">
+        Ver mi progreso →
       </a>
     </div>
   </section>
 
-  <!-- Categorías -->
-  <section class="grid md:grid-cols-3 gap-6">
-    <!-- Piano -->
-    <div
-      class="p-6 rounded-lg shadow-md hover:shadow-xl transition-all bg-gradient-to-br from-pink-50 to-pink-100 dark:from-gray-800 dark:to-gray-900">
-      <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100">🎹 Piano</h3>
-      <p class="text-gray-600 dark:text-gray-300 mb-4">Clases desde nivel básico hasta avanzado...</p>
-      <a routerLink="/piano" class="text-blue-500 dark:text-cyan-400 hover:underline">Ver más →</a>
-    </div>
-    <!-- Guitarra -->
-    <div
-      class="p-6 rounded-lg shadow-md hover:shadow-xl transition-all bg-gradient-to-br from-amber-50 to-amber-100 dark:from-gray-800 dark:to-gray-900">
-      <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100">🎸 Guitarra</h3>
-      <p class="text-gray-600 dark:text-gray-300 mb-4">Aprende acordes, riffs, escalas...</p>
-      <a routerLink="/guitarra" class="text-blue-500 dark:text-cyan-400 hover:underline">Ver más →</a>
-    </div>
-    <!-- Bajo -->
-    <div
-      class="p-6 rounded-lg shadow-md hover:shadow-xl transition-all bg-gradient-to-br from-teal-50 to-teal-100 dark:from-gray-800 dark:to-gray-900">
-      <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100">🎵 Bajo</h3>
-      <p class="text-gray-600 dark:text-gray-300 mb-4">Desarrolla ritmo y groove...</p>
-      <a routerLink="/bajo" class="text-blue-500 dark:text-cyan-400 hover:underline">Ver más →</a>
+  <!-- PROGRESO -->
+  <section aria-labelledby="progreso-title" class="space-y-4">
+    <h3 id="progreso-title"
+        class="text-2xl font-bold text-[#111827] dark:text-[#E5E7EB]">
+      📚 Tus cursos en progreso
+    </h3>
+
+    <article *ngFor="let curso of cursosEnProgreso"
+      class="rounded-xl p-5 shadow-md ring-1 ring-[#E6EAF0]
+             bg-white dark:bg-[#0F172A]/80 dark:ring-[#1E293B] transition-colors">
+      <div class="flex items-center justify-between mb-3">
+        <h4 class="font-semibold text-[#111827] dark:text-[#E5E7EB]">
+          {{ curso.titulo }}
+        </h4>
+        <span class="text-sm text-[#6B7280] dark:text-[#9CA3AF]">
+          {{ curso.progreso }}%
+        </span>
+      </div>
+
+      <!-- barra de progreso -->
+      <div class="h-2.5 w-full rounded-full bg-[#E5E7EB] dark:bg-[#1F2937] overflow-hidden">
+        <div class="h-full rounded-full transition-all duration-700 ease-out
+                    bg-gradient-to-r from-[#2563EB] to-[#60A5FA]
+                    dark:from-[#60A5FA] dark:to-[#38BDF8]"
+             [style.width.%]="curso.progreso"></div>
+      </div>
+
+      <a [routerLink]="curso.ruta"
+         class="mt-3 inline-flex items-center gap-1 text-sm
+                text-[#2563EB] dark:text-[#60A5FA] hover:underline">
+        Continuar →
+      </a>
+    </article>
+  </section>
+
+  <!-- CATEGORÍAS -->
+  <section aria-labelledby="cats-title" class="space-y-4">
+    <h3 id="cats-title"
+        class="text-2xl font-bold text-[#111827] dark:text-[#E5E7EB]">
+      🎼 Categorías
+    </h3>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      <!-- Piano -->
+      <article
+        class="rounded-xl p-6 shadow-md ring-1 ring-[#E6EAF0]
+               bg-white dark:bg-[#0F172A]/80 dark:ring-[#1E293B]
+               hover:shadow-lg hover:-translate-y-0.5 transition">
+        <h4 class="text-lg font-semibold mb-2 text-[#111827] dark:text-[#E5E7EB]">🎹 Piano</h4>
+        <p class="text-[#4B5563] dark:text-[#9CA3AF] mb-4">
+          Clases desde nivel básico hasta avanzado…
+        </p>
+        <a routerLink="/cursos/piano"
+           class="text-[#2563EB] dark:text-[#60A5FA] hover:underline">Ver más →</a>
+      </article>
+
+      <!-- Guitarra -->
+      <article
+        class="rounded-xl p-6 shadow-md ring-1 ring-[#E6EAF0]
+               bg-white dark:bg-[#0F172A]/80 dark:ring-[#1E293B]
+               hover:shadow-lg hover:-translate-y-0.5 transition">
+        <h4 class="text-lg font-semibold mb-2 text-[#111827] dark:text-[#E5E7EB]">🎸 Guitarra</h4>
+        <p class="text-[#4B5563] dark:text-[#9CA3AF] mb-4">
+          Aprende acordes, riffs y escalas…
+        </p>
+        <a routerLink="/cursos/guitarra"
+           class="text-[#2563EB] dark:text-[#60A5FA] hover:underline">Ver más →</a>
+      </article>
+
+      <!-- Bajo -->
+      <article
+        class="rounded-xl p-6 shadow-md ring-1 ring-[#E6EAF0]
+               bg-white dark:bg-[#0F172A]/80 dark:ring-[#1E293B]
+               hover:shadow-lg hover:-translate-y-0.5 transition">
+        <h4 class="text-lg font-semibold mb-2 text-[#111827] dark:text-[#E5E7EB]">🎵 Bajo</h4>
+        <p class="text-[#4B5563] dark:text-[#9CA3AF] mb-4">
+          Desarrolla ritmo y groove…
+        </p>
+        <a routerLink="/cursos/bajo"
+           class="text-[#2563EB] dark:text-[#60A5FA] hover:underline">Ver más →</a>
+      </article>
     </div>
   </section>
 
